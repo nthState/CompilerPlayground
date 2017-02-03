@@ -6,6 +6,7 @@ import Cocoa
 
 let inputString = "Move the picture1 up 10 pixels"  //Good syntax
 //let inputString = "Move something picture1 up 10 pixels"  //Bad syntax
+//let inputString = "Move pixels picture1 up 10 pixels"  //Bad syntax wrong token
 
 
 // Grammar supported
@@ -91,6 +92,8 @@ func handleMove(x:Grammar)
         // skip
     } else if currentToken.grammar == .ID {
         tokenPointer -= 1
+    } else {
+        print("compiler error: Wrong token after MOVE")
     }
     
     tokenPointer += 1
